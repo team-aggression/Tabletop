@@ -19,12 +19,24 @@ namespace CollaBeat
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+        //Constants
+        const int NROFBEATS = 2;
+        const int BPM = 128;
+
+        int BEATCONSTANT;
 
         DispatcherTimer dispatcherTimer;
+        ISoundEngine engine;
+        List<string> soundList;
 
 		public MainWindow()
 		{
 			this.InitializeComponent();
+
+
+            engine = new ISoundEngine();
+            soundList = new List<string>();
+            BEATCONSTANT = 1000 * 60 * 8 * NROFBEATS / BPM;
 
             //  DispatcherTimer setup
             dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
