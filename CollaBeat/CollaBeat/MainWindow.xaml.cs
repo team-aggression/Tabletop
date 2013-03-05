@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IrrKlang;
+using System.Windows.Threading;
 
 namespace CollaBeat
 {
@@ -17,11 +19,27 @@ namespace CollaBeat
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+
+        DispatcherTimer dispatcherTimer;
+
 		public MainWindow()
 		{
 			this.InitializeComponent();
 
+            //  DispatcherTimer setup
+            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Start();
+
 			// Insert code required on object creation below this point.
 		}
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+
+            // Forcing the CommandManager to raise the RequerySuggested event
+            CommandManager.InvalidateRequerySuggested();
+        }
+
 	}
 }
