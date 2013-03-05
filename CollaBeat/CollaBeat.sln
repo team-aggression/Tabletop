@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollaBeat", "CollaBeat\CollaBeat.csproj", "{b6e89ad1-0473-4f02-8ed9-ee0c503dd1b8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6E89AD1-0473-4F02-8ED9-EE0C503DD1B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E89AD1-0473-4F02-8ED9-EE0C503DD1B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E89AD1-0473-4F02-8ED9-EE0C503DD1B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E89AD1-0473-4F02-8ED9-EE0C503DD1B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
