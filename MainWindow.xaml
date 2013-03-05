@@ -1,0 +1,29 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="AudioTest.MainWindow"
+	x:Name="Window"
+	Title="MainWindow"
+	Width="640" Height="480">
+
+	<Grid x:Name="LayoutRoot" Background="#242424">
+		<Button x:Name="btnKick" Content="Kick" HorizontalAlignment="Left" Margin="95,136,0,0" VerticalAlignment="Top" Width="126" Height="54.96" Background="#FF7373D9" Foreground="White" FontSize="21.333" Click="btnKickClick"/>
+		<Button x:Name="btnSnare" Content="Snare" Margin="235,136,263,0" VerticalAlignment="Top" Height="54.96" Background="#FF7373D9" Foreground="White" FontSize="21.333" Click="btnSnareClick"/>
+		<Button x:Name="btnHihat" Content="Open hh" Margin="0,136,120,0" VerticalAlignment="Top" Height="54.96" Background="#FF7373D9" Foreground="White" FontSize="21.333" HorizontalAlignment="Right" Width="126" Click="btnHihatClick"/>
+		<Button x:Name="btnPiano" Content="Piano" HorizontalAlignment="Left" Margin="95,0,0,73.04" Width="126" Background="#FF7373D9" Foreground="White" FontSize="21.333" Click="btnPianoClick" Height="54.96" VerticalAlignment="Bottom"/>
+		<Button x:Name="btnBass" Content="Bass" Margin="0,0,120,73.04" Background="#FF7373D9" Foreground="White" FontSize="21.333" Height="54.96" VerticalAlignment="Bottom" Click="btnBassClick" HorizontalAlignment="Right" Width="126"/>
+		<Button x:Name="btnLead" Content="Lead" Margin="0,0,120,160.04" Background="#FF7373D9" Foreground="White" FontSize="21.333" HorizontalAlignment="Right" Height="54.96" VerticalAlignment="Bottom" Width="126" Click="btnLeadClick"/>
+		<Rectangle x:Name="recBeat1" Height="110" VerticalAlignment="Top" Width="134" HorizontalAlignment="Left" Fill="#FF242424" Stroke="#FF161616" Margin="14,8,0,0"/>
+		<TextBlock HorizontalAlignment="Left" Height="46" Margin="14,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="29.333" TextAlignment="Center" Foreground="#FF242424"><Run Language="sv-se" Text="1"/></TextBlock>
+		<Rectangle x:Name="recBeat2" Height="110" VerticalAlignment="Top" Width="134" HorizontalAlignment="Left" Fill="#FF242424" Stroke="#FF161616" Margin="165,8,0,0"/>
+		<TextBlock HorizontalAlignment="Left" Height="46" Margin="165,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="29.333" TextAlignment="Center" Foreground="#FF242424"><Run Language="sv-se" Text="2"/></TextBlock>
+		<Rectangle x:Name="recBeat3" Height="110" VerticalAlignment="Top" Width="134" HorizontalAlignment="Right" Fill="#FF242424" Stroke="#FF161616" Margin="0,8,173,0"/>
+		<TextBlock HorizontalAlignment="Right" Height="46" Margin="0,40,173,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="29.333" TextAlignment="Center" Foreground="#FF242424"><Run Language="sv-se" Text="3"/></TextBlock>
+		<Rectangle x:Name="recBeat4" Height="110" VerticalAlignment="Top" Width="134" HorizontalAlignment="Right" Fill="#FF242424" Stroke="#FF161616" Margin="0,8,20,0"/>
+		<TextBlock HorizontalAlignment="Right" Height="46" Margin="0,40,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="29.333" TextAlignment="Center" Foreground="#FF242424"><Run Language="sv-se" Text="4"/></TextBlock>
+		<Button x:Name="btnHihatClosed" Content="Closed hh" Margin="95,0,0,160.04" VerticalAlignment="Bottom" Height="54.96" Background="#FF7373D9" Foreground="White" FontSize="21.333" HorizontalAlignment="Left" Width="126" Click="btnHihatClosedClick"/>
+		<Button x:Name="btnWnoise" Content="Wnoise" Margin="235,0,263,73.04" Background="#FF7373D9" Foreground="White" FontSize="21.333" Click="btnWnoiseClick" Height="54.96" VerticalAlignment="Bottom"/>
+		<Button x:Name="btnCrash" Content="Crash" Margin="235,0,263,160.04" Background="#FF7373D9" Foreground="White" FontSize="21.333" Height="54.96" VerticalAlignment="Bottom" Click="btnCrashClick"/>
+	</Grid>
+</Window>
