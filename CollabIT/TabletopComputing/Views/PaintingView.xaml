@@ -12,7 +12,7 @@
         <data:SurfaceInkEditingModeToBoolConverter x:Key="SurfaceInkEditingModeToBoolConverter" />
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <s:TagVisualizer x:Name="TagVisualizer">
+        <s:TagVisualizer x:Name="TagVisualizer" Margin="0,0,0,76" PreviewVisualizationAdded="TagAddedToLoop">
             <s:TagVisualizer.Definitions>
                 <s:TagVisualizationDefinition Source="Controls/FaceTagVisualization.xaml"
                                                   TagRemovedBehavior="Fade"
@@ -33,6 +33,11 @@
                                ItemContainerStyle="{DynamicResource EmptyScatterViewItemStyle}"
                                Margin="100" />
             </Grid>
+        </s:TagVisualizer>
+        <s:TagVisualizer x:Name="tagvisKick" Content="TagVisualizer" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Height="64" Width="80" PreviewVisualizationAdded="TagEnter">
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
         </s:TagVisualizer>
        
     </Grid>

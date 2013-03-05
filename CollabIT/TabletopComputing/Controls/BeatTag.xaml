@@ -9,6 +9,6 @@
              x:Name="This"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Ellipse Height="100" HorizontalAlignment="Left" Margin="55,93,0,0" Name="ellipse1" Stroke="Black" VerticalAlignment="Top" Width="200" Fill="AliceBlue" />
+        <Ellipse x:Name="myEllipse" Height="100" HorizontalAlignment="Left" Margin="55,93,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" Fill="AliceBlue" />
     </Grid>
 </s:TagVisualization>

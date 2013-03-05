@@ -25,11 +25,13 @@ namespace TabletopComputing.Controls
     {
 
         private PaintingView _paintingView;
+        int sample = -1;
 
         public BeatTag()
         {
             Loaded += new RoutedEventHandler(OnLoaded);
             Unloaded += new RoutedEventHandler(OnUnloaded);
+
             InitializeComponent();
         }
 
@@ -42,6 +44,7 @@ namespace TabletopComputing.Controls
             SurfaceWindow1 mainWindow = App.Current.MainWindow as SurfaceWindow1;
             Debug.Assert(mainWindow != null);
             _paintingView = mainWindow.ShellView.PaintingView;
+
 
             _paintingView.addRemoveBeat("kick2.wav");
         }

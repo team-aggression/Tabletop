@@ -56,6 +56,7 @@ namespace TabletopComputing.Views
         DispatcherTimer dispatcherTimer;
         ISoundEngine engine;
         List<string> soundList;
+        Dictionary<long, string> beatTags;
         Stopwatch stopwatch;
 
 
@@ -65,6 +66,7 @@ namespace TabletopComputing.Views
 
             engine = new ISoundEngine();
             soundList = new List<string>();
+            beatTags = new Dictionary<long, string>();
             BEATCONSTANT = 1000 * 60 * 8 * NROFBEATS / BPM;
 
             stopwatch = new Stopwatch();
@@ -96,6 +98,15 @@ namespace TabletopComputing.Views
             }
         }
 
+        public void addBeatTag(int id, string sample)
+        {
+            if(!beatTags.Keys.Contains(id)) {
+                beatTags.Add(id, sample);
+			}
+            else {
+                
+            }
+        }
 
         bool first = true;
 
@@ -121,6 +132,33 @@ namespace TabletopComputing.Views
             }
 
             CommandManager.InvalidateRequerySuggested();
+        }
+
+        private void TagEnter(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
+        {
+        	var id = e.TagVisualization.VisualizedTag.Value;
+			var tagviz = sender as TagVisualization;
+			if(tagviz.Name == "tgKick") {
+					if(!beatTags.ContainsKey(id)) {
+						beatTags.Add(id, "kick2.wav");
+					}
+			}
+			else if(tagviz.Name == "tgPiano") {
+					if(!beatTags.ContainsKey(id)) {
+						beatTags.Add(id, "piano2.wav");
+					}
+			}
+			// TODO: Add event handler implementation here.
+        }
+
+        private void TagAddedToLoop(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
+        {
+			var id = e.TagVisualization.VisualizedTag.Value;
+			if(beatTags.ContainsKey(id)) {
+                string beat = beatTags[id];
+				addRemoveBeat(beat);
+			}
+        	// TODO: Add event handler implementation here.
         }
 
 
