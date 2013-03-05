@@ -34,7 +34,12 @@
                                Margin="100" />
             </Grid>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tagvisKick" Content="TagVisualizer" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Height="64" Width="80" PreviewVisualizationAdded="TagEnter">
+        <s:TagVisualizer x:Name="tagvisKick" Content="Kick" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Height="64" Width="104" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter">
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
+        </s:TagVisualizer>
+        <s:TagVisualizer x:Name="tgPiano" Margin="0,0,4,4" VerticalAlignment="Bottom" Height="64" PreviewVisualizationAdded="TagEnter" Background="#009D5B5B" Content="Piano" HorizontalAlignment="Right" Width="112" PreviewVisualizationMoved="TagEnter">
         	<s:TagVisualizer.Definitions>
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>

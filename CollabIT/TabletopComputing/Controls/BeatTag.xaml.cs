@@ -46,13 +46,13 @@ namespace TabletopComputing.Controls
             _paintingView = mainWindow.ShellView.PaintingView;
 
 
-            _paintingView.addRemoveBeat("kick2.wav");
+            //_paintingView.addRemoveBeat("kick2.wav");
         }
 
         void OnUnloaded(object sender, RoutedEventArgs e)
         {
             // Remove from registry
-            _paintingView.addRemoveBeat("kick2.wav");
+            //_paintingView.addRemoveBeat("kick2.wav");
             TagVisualizationManager.Instance.RemoveTagviz(this);
         }
     }

@@ -137,17 +137,32 @@ namespace TabletopComputing.Views
         private void TagEnter(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
         {
         	var id = e.TagVisualization.VisualizedTag.Value;
-			var tagviz = sender as TagVisualization;
-			if(tagviz.Name == "tgKick") {
-					if(!beatTags.ContainsKey(id)) {
-						beatTags.Add(id, "kick2.wav");
-					}
-			}
-			else if(tagviz.Name == "tgPiano") {
-					if(!beatTags.ContainsKey(id)) {
-						beatTags.Add(id, "piano2.wav");
-					}
-			}
+			var tagviz = sender as TagVisualizer;
+            if (tagviz != null)
+            {
+                if (tagviz.Content.Equals("Kick"))
+                {
+                    if (!beatTags.ContainsKey(id))
+                    {
+                        beatTags.Add(id, "kick2.wav");
+                    }
+                    else
+                    {
+                        beatTags[id] = "kick2.wav";
+                    }
+                }
+                else if (tagviz.Content.Equals("Piano"))
+                {
+                    if (!beatTags.ContainsKey(id))
+                    {
+                        beatTags.Add(id, "piano2.wav");
+                    }
+                    else
+                    {
+                        beatTags[id] = "piano2.wav";
+                    }
+                }
+            }
 			// TODO: Add event handler implementation here.
         }
 
