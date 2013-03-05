@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Color x:Key="DefaultBackgroundColor">#FD623702</Color>
+	<Color x:Key="DefaultBrushColor">#ACE2D4BB</Color>
+	<Color x:Key="DefaultForegroundColor">#FFE2D4BB</Color>
+	<Color x:Key="NeutralBackgroundColor">#FF1B1B1B</Color>
+	<Color x:Key="PaintingColor1">#FF9D311F</Color>
+	<Color x:Key="PaintingColor2">#FF2E9D6D</Color>
+	<Color x:Key="PaintingColor3">#FFC5C618</Color>
+	<Color x:Key="PaintingColor4">#FF73B826</Color>
+	<Color x:Key="PaintingColor5">#FF5A3DB4</Color>
+	<Thickness x:Key="DefaultMargin">2</Thickness>
+	</ResourceDictionary>

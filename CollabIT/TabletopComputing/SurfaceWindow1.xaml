@@ -1,0 +1,13 @@
+﻿<s:SurfaceWindow x:Class="TabletopComputing.SurfaceWindow1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008"
+    xmlns:v="clr-namespace:TabletopComputing.Views"
+    Title="TabletopComputing"
+    WindowState="Maximized"
+    WindowStyle="None"
+    ResizeMode="NoResize">
+    <Grid x:Name="LayoutRoot">
+        <v:ShellView x:Name="ShellView" />
+    </Grid>
+</s:SurfaceWindow>
