@@ -58,6 +58,7 @@ namespace TabletopComputing.Views
         List<string> soundList;
         Dictionary<long, string> beatTags;
         Stopwatch stopwatch;
+        List<long> registeredTags;
 
 
         public PaintingView()
@@ -66,6 +67,7 @@ namespace TabletopComputing.Views
 
             engine = new ISoundEngine();
             soundList = new List<string>();
+            registeredTags = new List<long>();
             beatTags = new Dictionary<long, string>();
             BEATCONSTANT = 1000 * 60 * 8 * NROFBEATS / BPM;
 
@@ -98,6 +100,12 @@ namespace TabletopComputing.Views
             }
         }
 
+        public string GetSampleFromID(long id) {
+            if (beatTags.ContainsKey(id))
+                return beatTags[id];
+            else return "NO sample";
+        }
+
         public void addBeatTag(int id, string sample)
         {
             if(!beatTags.Keys.Contains(id)) {
@@ -106,6 +114,41 @@ namespace TabletopComputing.Views
             else {
                 
             }
+        }
+
+        public void RegisterTag(long id)
+        {
+            if (!registeredTags.Contains(id))
+                registeredTags.Add(id);
+        }
+
+        public void Unregistertag(long id)
+        {
+            if (registeredTags.Contains(id))
+            {
+                registeredTags.Remove(id);
+            }
+        }
+
+        private void EnableDisableSample(string sample, bool enabled)
+        {
+            if (sample.Equals("kick2.wav"))
+            {
+                tagvisKick.IsEnabled = enabled;
+            }
+            else if (sample.Equals("lead2.wav"))
+            {
+                //.IsEnabled = enabled;
+            }
+            else if (sample.Equals("snare2.wav"))
+            {
+                tgSnare.IsEnabled = enabled;
+            }
+            else if (sample.Equals("piano2.wav"))
+            {
+                tgPiano.IsEnabled = enabled;
+            }
+
         }
 
         bool first = true;
@@ -125,10 +168,11 @@ namespace TabletopComputing.Views
                 stopwatch.Reset();
                 stopwatch.Start();
 
-                foreach (string sound in soundList)
+                foreach (long tagid in registeredTags)
                 {
-                    engine.Play2D(sound);
+                    engine.Play2D("Song/" + beatTags[tagid]);
                 }
+
             }
 
             CommandManager.InvalidateRequerySuggested();
@@ -136,44 +180,74 @@ namespace TabletopComputing.Views
 
         private void TagEnter(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
         {
+            
         	var id = e.TagVisualization.VisualizedTag.Value;
 			var tagviz = sender as TagVisualizer;
             if (tagviz != null)
             {
                 if (tagviz.Content.Equals("Kick"))
                 {
-                    if (!beatTags.ContainsKey(id))
-                    {
-                        beatTags.Add(id, "kick2.wav");
-                    }
-                    else
-                    {
-                        beatTags[id] = "kick2.wav";
-                    }
+                    AddBeatTag(id,"kick2");
                 }
                 else if (tagviz.Content.Equals("Piano"))
                 {
-                    if (!beatTags.ContainsKey(id))
-                    {
-                        beatTags.Add(id, "piano2.wav");
-                    }
-                    else
-                    {
-                        beatTags[id] = "piano2.wav";
-                    }
+                    AddBeatTag(id, "piano2");
                 }
+                else if (tagviz.Content.Equals("Snare"))
+                {
+                    AddBeatTag(id, "snare2");
+                }
+                else if (tagviz.Content.Equals("Open Hi-hat"))
+                {
+                    AddBeatTag(id, "hihat_open2");
+                }
+                else if (tagviz.Content.Equals("Closed Hi-hat"))
+                {
+                    AddBeatTag(id, "hihat_closed2");
+                }
+                else if (tagviz.Content.Equals("Wnoise"))
+                {
+                    AddBeatTag(id, "wnoise2");
+                }
+                else if (tagviz.Content.Equals("Lead"))
+                {
+                    AddBeatTag(id, "lead2");
+                }
+                tagviz.IsEnabled = false;
             }
 			// TODO: Add event handler implementation here.
+        }
+
+        private void AddBeatTag(long id, string sample)
+        {
+            if (!beatTags.ContainsKey(id))
+            {
+                beatTags.Add(id, sample + ".wav");
+            }
+            else
+            {
+                EnableDisableSample(beatTags[id], true);
+                beatTags[id] = sample + ".wav";
+            }
+            EnableDisableSample(beatTags[id], false);
         }
 
         private void TagAddedToLoop(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
         {
 			var id = e.TagVisualization.VisualizedTag.Value;
-			if(beatTags.ContainsKey(id)) {
-                string beat = beatTags[id];
-				addRemoveBeat(beat);
-			}
+            //if(beatTags.ContainsKey(id)) {
+            //    string beat = beatTags[id];
+            //    addRemoveBeat(beat);
+            //}
+            RegisterTag(id);
         	// TODO: Add event handler implementation here.
+        }
+
+        private void TagRemovedFromLoop(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+			var id = e.TagVisualization.VisualizedTag.Value;
+            Unregistertag(id);
         }
 
 

@@ -45,6 +45,7 @@ namespace TabletopComputing.Controls
             Debug.Assert(mainWindow != null);
             _paintingView = mainWindow.ShellView.PaintingView;
 
+            tbSampleName.Text = _paintingView.GetSampleFromID(this.VisualizedTag.Value);
 
             //_paintingView.addRemoveBeat("kick2.wav");
         }
