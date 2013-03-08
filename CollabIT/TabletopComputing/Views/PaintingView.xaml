@@ -11,16 +11,39 @@
              d:DesignHeight="900" d:DesignWidth="1600">
     <UserControl.Resources>
     	<data:SurfaceInkEditingModeToBoolConverter x:Key="SurfaceInkEditingModeToBoolConverter" />
+    	<Storyboard x:Key="CenterGrow" RepeatBehavior="Forever">
+    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
+    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.455"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-16"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
+    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.455"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse">
+    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="24"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+    			<EasingColorKeyFrame KeyTime="0:0:1" Value="#FFC59921"/>
+    		</ColorAnimationUsingKeyFrames>
+    	</Storyboard>
     </UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+	</UserControl.Triggers>
     <Grid x:Name="LayoutRoot">
     	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="VisualStateGroup"/>
+    		<VisualStateGroup x:Name="VisualStateGroup">
+    			<VisualState x:Name="Enabled"/>
+    			<VisualState x:Name="Disabled"/>
+    		</VisualStateGroup>
     	</VisualStateManager.VisualStateGroups>
-        <s:TagVisualizer x:Name="TagVisualizer" Margin="0,0,0,164" PreviewVisualizationAdded="TagAddedToLoop" PreviewVisualizationRemoved="TagRemovedFromLoop">
+        <s:TagVisualizer x:Name="TagVisualizer" Margin="0,0,0,164" PreviewVisualizationAdded="TagAddedToLoop" PreviewVisualizationRemoved="TagRemovedFromLoop" Panel.ZIndex="-2">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
-        			<GradientStop Color="#FF1C0D41" Offset="0"/>
-        			<GradientStop Color="#FF050010" Offset="1"/>
+        			<GradientStop Color="#FF3E454C" Offset="0"/>
+        			<GradientStop Color="#FF3E454C" Offset="1"/>
         		</RadialGradientBrush>
         	</s:TagVisualizer.Background>
             <s:TagVisualizer.Definitions>
@@ -44,6 +67,30 @@
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
             		TagRemovedBehavior="Fade"
             		Value="4"
+            		MaxCount="1"  />
+                <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
+            		TagRemovedBehavior="Fade"
+            		Value="5"
+            		MaxCount="1"  />
+                <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
+            		TagRemovedBehavior="Fade"
+            		Value="6"
+            		MaxCount="1"  />
+                <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
+            		TagRemovedBehavior="Fade"
+            		Value="4"
+            		MaxCount="1"  />
+                <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
+            		TagRemovedBehavior="Fade"
+            		Value="7"
+            		MaxCount="1"  />
+                <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
+            		TagRemovedBehavior="Fade"
+            		Value="8"
+            		MaxCount="1"  />
+                <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
+            		TagRemovedBehavior="Fade"
+            		Value="9"
             		MaxCount="1"  />
                 
             </s:TagVisualizer.Definitions>
@@ -83,13 +130,6 @@
         	<s:TagVisualizer.Definitions>
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
-        	<i:Interaction.Behaviors>
-        		<ei:DataStateBehavior TrueState="Enabled" FalseState="Disabled" Binding="{Binding IsEnabled, ElementName=tgSnare}">
-        			<ei:DataStateBehavior.Value>
-        				<System:Boolean>False</System:Boolean>
-        			</ei:DataStateBehavior.Value>
-        		</ei:DataStateBehavior>
-        	</i:Interaction.Behaviors>
         </s:TagVisualizer>
         <s:TagVisualizer x:Name="tgPiano" Content="Piano" HorizontalAlignment="Left" Margin="440,0,0,4" VerticalAlignment="Bottom" Height="160" Width="224" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48">
         	<s:TagVisualizer.Background>
@@ -101,14 +141,62 @@
         	<s:TagVisualizer.Definitions>
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
-        	<i:Interaction.Behaviors>
-        		<ei:DataStateBehavior TrueState="Enabled" FalseState="Disabled" Binding="{Binding IsEnabled, ElementName=tgPiano}">
-        			<ei:DataStateBehavior.Value>
-        				<System:Boolean>False</System:Boolean>
-        			</ei:DataStateBehavior.Value>
-        		</ei:DataStateBehavior>
-        	</i:Interaction.Behaviors>
         </s:TagVisualizer>
+        <s:TagVisualizer x:Name="tgOpenHH" Content="Open HH" Margin="664,0,712,4" VerticalAlignment="Bottom" Height="160" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48">
+        	<s:TagVisualizer.Background>
+        		<RadialGradientBrush>
+        			<GradientStop Color="#FFEBEBEB" Offset="0"/>
+        			<GradientStop Color="#FFC2C2C2" Offset="1"/>
+        		</RadialGradientBrush>
+        	</s:TagVisualizer.Background>
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
+        </s:TagVisualizer>
+        <s:TagVisualizer x:Name="tgClosedHH" Content="Closed HH" Margin="0,0,488,4" VerticalAlignment="Bottom" Height="160" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48" HorizontalAlignment="Right" Width="224">
+        	<s:TagVisualizer.Background>
+        		<RadialGradientBrush>
+        			<GradientStop Color="#FFEBEBEB" Offset="0"/>
+        			<GradientStop Color="#FFC2C2C2" Offset="1"/>
+        		</RadialGradientBrush>
+        	</s:TagVisualizer.Background>
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
+        </s:TagVisualizer>
+        <s:TagVisualizer x:Name="tgLead" Content="Lead" Margin="0,0,264,4" VerticalAlignment="Bottom" Height="160" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48" HorizontalAlignment="Right" Width="224">
+        	<s:TagVisualizer.Background>
+        		<RadialGradientBrush>
+        			<GradientStop Color="#FFEBEBEB" Offset="0"/>
+        			<GradientStop Color="#FFC2C2C2" Offset="1"/>
+        		</RadialGradientBrush>
+        	</s:TagVisualizer.Background>
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
+        </s:TagVisualizer>
+        <s:TagVisualizer x:Name="tgWNoise" Content="WNoise" Margin="0,0,40,4" VerticalAlignment="Bottom" Height="160" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48" HorizontalAlignment="Right" Width="224">
+        	<s:TagVisualizer.Background>
+        		<RadialGradientBrush>
+        			<GradientStop Color="#FFEBEBEB" Offset="0"/>
+        			<GradientStop Color="#FFC2C2C2" Offset="1"/>
+        		</RadialGradientBrush>
+        	</s:TagVisualizer.Background>
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
+        </s:TagVisualizer>
+        <Ellipse x:Name="ellipse" Fill="#FF2185C5" Margin="704,272,720,0" Height="176" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+        	<Ellipse.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</Ellipse.RenderTransform>
+        </Ellipse>
+        <TextBlock x:Name="tbBeatCounter" Height="104" Margin="776,320,704,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Foreground="White"><Run Language="sv-se" Text="1"/></TextBlock>
        
     </Grid>
 </UserControl>
