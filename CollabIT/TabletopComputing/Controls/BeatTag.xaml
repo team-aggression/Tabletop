@@ -8,8 +8,15 @@
           
              x:Name="This"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Ellipse x:Name="myEllipse" Height="100" HorizontalAlignment="Left" Margin="55,93,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" Fill="#FF70A2CE" />
-        <TextBlock x:Name="tbSampleName" Height="56" Margin="112,0,92,44" TextWrapping="Wrap" Text="Sample" VerticalAlignment="Bottom" Foreground="White" FontSize="26.667" RenderTransformOrigin="0.333,0.571"/>
+    <Grid Width="300" Height="300">
+        <TextBlock x:Name="tbSampleName" Margin="0,0,12,4" TextWrapping="Wrap" Text="Sample" Foreground="White" FontSize="26.667" RenderTransformOrigin="0.333,0.571" Panel.ZIndex="15"/>
+        <Ellipse Margin="16,24,20,12" Panel.ZIndex="10">
+        	<Ellipse.Fill>
+        		<RadialGradientBrush>
+        			<GradientStop Color="#FFFF7F66" Offset="0"/>
+        			<GradientStop Color="#00FF7F66" Offset="1"/>
+        		</RadialGradientBrush>
+        	</Ellipse.Fill>
+        </Ellipse>
     </Grid>
 </s:TagVisualization>

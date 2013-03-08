@@ -21,6 +21,7 @@ using System.Windows.Ink;
 using IrrKlang;
 using System.Windows.Threading;
 using System.Diagnostics;
+using System.Windows.Media.Animation;
 
 namespace TabletopComputing.Views
 {
@@ -59,6 +60,7 @@ namespace TabletopComputing.Views
         Dictionary<long, string> beatTags;
         Stopwatch stopwatch;
         List<long> registeredTags;
+        Storyboard sb;
 
 
         public PaintingView()
@@ -70,6 +72,11 @@ namespace TabletopComputing.Views
             registeredTags = new List<long>();
             beatTags = new Dictionary<long, string>();
             BEATCONSTANT = 1000 * 60 * 8 * NROFBEATS / BPM;
+
+            sb = this.FindResource("CenterGrow") as Storyboard;
+            sb.Duration = new Duration(TimeSpan.FromMilliseconds(BEATCONSTANT / 16));
+            
+            Storyboard.SetTarget(sb, this.ellipse);
 
             stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -135,20 +142,55 @@ namespace TabletopComputing.Views
             if (sample.Equals("kick2.wav"))
             {
                 tagvisKick.IsEnabled = enabled;
+                ColorSample(tagvisKick, enabled);
             }
             else if (sample.Equals("lead2.wav"))
             {
-                //.IsEnabled = enabled;
+                tgLead.IsEnabled = enabled;
+                ColorSample(tgLead, enabled);
             }
             else if (sample.Equals("snare2.wav"))
             {
                 tgSnare.IsEnabled = enabled;
+                ColorSample(tgSnare, enabled);
             }
             else if (sample.Equals("piano2.wav"))
             {
                 tgPiano.IsEnabled = enabled;
+                ColorSample(tgPiano, enabled);
+            }
+            else if (sample.Equals("hihat_open2.wav"))
+            {
+                tgOpenHH.IsEnabled = enabled;
+                ColorSample(tgOpenHH, enabled);
+            }
+            else if (sample.Equals("hihat_closed2.wav"))
+            {
+                tgClosedHH.IsEnabled = enabled;
+                ColorSample(tgClosedHH, enabled);
+            }
+            else if (sample.Equals("wnoise2.wav"))
+            {
+                tgWNoise.IsEnabled = enabled;
+                ColorSample(tgWNoise, enabled);
             }
 
+        }
+
+        private void ColorSample(TagVisualizer tg, bool enabled)
+        {
+            var bc = new BrushConverter();
+            if (enabled)
+            {
+                tg.Background = (Brush)bc.ConvertFrom("#FFF6E5");
+                tg.Foreground = (Brush)bc.ConvertFrom("#3E454C");
+                
+            }
+            else
+            {
+                tg.Background = (Brush)bc.ConvertFrom("#2185C5");
+                tg.Foreground = (Brush)bc.ConvertFrom("#3E454C");
+            }
         }
 
         bool first = true;
@@ -159,11 +201,25 @@ namespace TabletopComputing.Views
             // Forcing the CommandManager to raise the RequerySuggested event
             var time = stopwatch.ElapsedMilliseconds;
 
+            float p = (float)time / (float)BEATCONSTANT;
+
+            if (p >= 0 && p < 0.25)
+                tbBeatCounter.Text = "1";
+            else if (p >= 0.25 && p < 0.5)
+                tbBeatCounter.Text = "2";
+            else if (p >= 0.50 && p < 0.75)
+                tbBeatCounter.Text = "3";
+            else if (p >= 0.75 && p < 1.0)
+                tbBeatCounter.Text = "4";
+
             if (((time) >= (BEATCONSTANT)) || first)
             {
 
                 if (first)
+                {
                     first = false;
+                    sb.Begin();
+                }
 
                 stopwatch.Reset();
                 stopwatch.Start();
@@ -197,15 +253,15 @@ namespace TabletopComputing.Views
                 {
                     AddBeatTag(id, "snare2");
                 }
-                else if (tagviz.Content.Equals("Open Hi-hat"))
+                else if (tagviz.Content.Equals("Open HH"))
                 {
                     AddBeatTag(id, "hihat_open2");
                 }
-                else if (tagviz.Content.Equals("Closed Hi-hat"))
+                else if (tagviz.Content.Equals("Closed HH"))
                 {
                     AddBeatTag(id, "hihat_closed2");
                 }
-                else if (tagviz.Content.Equals("Wnoise"))
+                else if (tagviz.Content.Equals("WNoise"))
                 {
                     AddBeatTag(id, "wnoise2");
                 }
