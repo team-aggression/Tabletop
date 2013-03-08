@@ -15,6 +15,7 @@ using Microsoft.Surface.Presentation.Controls;
 using System.Diagnostics;
 using TabletopComputing.Managers;
 using TabletopComputing.Views;
+using System.Windows.Media.Animation;
 
 namespace TabletopComputing.Controls
 {
@@ -45,7 +46,23 @@ namespace TabletopComputing.Controls
             Debug.Assert(mainWindow != null);
             _paintingView = mainWindow.ShellView.PaintingView;
 
-            tbSampleName.Text = _paintingView.GetSampleFromID(this.VisualizedTag.Value);
+            var sb = this.FindResource("CenterGrow") as Storyboard;
+            sb.Duration = new Duration(TimeSpan.FromMilliseconds(_paintingView.BEATCONSTANT / 16));
+
+            Random random = new Random();
+            int randomNumber = random.Next(0, 16777215);
+
+            string hexValue = randomNumber.ToString("X");
+
+            var bc = new BrushConverter();
+            if (hexValue.Length != 6)
+                hexValue = "FFFFFF";
+            grad1.Color = (Color)ColorConverter.ConvertFromString("#" + hexValue);
+
+            Storyboard.SetTarget(sb, this.ellipse);
+            sb.Begin();
+
+            //tbSampleName.Text = _paintingView.GetSampleFromID(this.VisualizedTag.Value);
 
             //_paintingView.addRemoveBeat("kick2.wav");
         }

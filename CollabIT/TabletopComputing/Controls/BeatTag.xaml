@@ -7,13 +7,42 @@
              mc:Ignorable="d" 
           
              x:Name="This"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Width="300" Height="300">
-        <TextBlock x:Name="tbSampleName" Margin="0,0,12,4" TextWrapping="Wrap" Text="Sample" Foreground="White" FontSize="26.667" RenderTransformOrigin="0.333,0.571" Panel.ZIndex="15"/>
-        <Ellipse Margin="16,24,20,12" Panel.ZIndex="10">
+             d:DesignHeight="600" d:DesignWidth="600">
+	<s:TagVisualization.Resources>
+		<Storyboard x:Key="TagGrow">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="4.625"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="4.625"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="4"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-4"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="ellipse">
+				<EasingColorKeyFrame KeyTime="0:0:2" Value="#00D4FF66"/>
+			</ColorAnimationUsingKeyFrames>
+		</Storyboard>
+	</s:TagVisualization.Resources>
+	<s:TagVisualization.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+	</s:TagVisualization.Triggers>
+    <Grid Width="600" Height="600">
+        <Ellipse x:Name="ellipse" Margin="172,200.245,200,168" Panel.ZIndex="10" RenderTransformOrigin="0.5,0.5">
+        	<Ellipse.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</Ellipse.RenderTransform>
         	<Ellipse.Fill>
         		<RadialGradientBrush>
-        			<GradientStop Color="#FFFF7F66" Offset="0"/>
+        			<GradientStop x:Name="grad1" Color="#FFFF7F66" Offset="0"/>
         			<GradientStop Color="#00FF7F66" Offset="1"/>
         		</RadialGradientBrush>
         	</Ellipse.Fill>

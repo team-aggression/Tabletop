@@ -52,7 +52,7 @@ namespace TabletopComputing.Views
 
         String BEATSPATH = "Song/";
 
-        int BEATCONSTANT;
+        public int BEATCONSTANT;
 
         DispatcherTimer dispatcherTimer;
         ISoundEngine engine;
@@ -133,6 +133,8 @@ namespace TabletopComputing.Views
         {
             if (registeredTags.Contains(id))
             {
+                if(beatTags.ContainsKey(id))
+                    EnableDisableSample(beatTags[id],true);
                 registeredTags.Remove(id);
             }
         }
@@ -174,6 +176,16 @@ namespace TabletopComputing.Views
                 tgWNoise.IsEnabled = enabled;
                 ColorSample(tgWNoise, enabled);
             }
+            else if (sample.Equals("crash2.wav"))
+            {
+                tgCrash.IsEnabled = enabled;
+                ColorSample(tgCrash, enabled);
+            }
+            else if (sample.Equals("bass2.wav"))
+            {
+                tgBass.IsEnabled = enabled;
+                ColorSample(tgBass, enabled);
+            }
 
         }
 
@@ -182,14 +194,14 @@ namespace TabletopComputing.Views
             var bc = new BrushConverter();
             if (enabled)
             {
-                tg.Background = (Brush)bc.ConvertFrom("#FFF6E5");
-                tg.Foreground = (Brush)bc.ConvertFrom("#3E454C");
+                tg.Background = (Brush)bc.ConvertFrom("#EBEBEB");
+                //tg.Foreground = (Brush)bc.ConvertFrom("#3E454C");
                 
             }
             else
             {
                 tg.Background = (Brush)bc.ConvertFrom("#2185C5");
-                tg.Foreground = (Brush)bc.ConvertFrom("#3E454C");
+                //tg.Foreground = (Brush)bc.ConvertFrom("#3E454C");
             }
         }
 
@@ -221,12 +233,22 @@ namespace TabletopComputing.Views
                     sb.Begin();
                 }
 
+                //Random random = new Random();
+               // int randomNumber = random.Next(0, 16777215);
+
+                //string hexValue = randomNumber.ToString("X");
+
+                //var bc = new BrushConverter();
+                //grad1.Color = (Color)ColorConverter.ConvertFromString("#" + hexValue);
+                //grad2.Color = (Color)ColorConverter.ConvertFromString("#" + hexValue);
+
                 stopwatch.Reset();
                 stopwatch.Start();
 
                 foreach (long tagid in registeredTags)
                 {
-                    engine.Play2D("Song/" + beatTags[tagid]);
+                    if(beatTags.ContainsKey(tagid))
+                        engine.Play2D("Song/" + beatTags[tagid]);
                 }
 
             }
@@ -268,6 +290,14 @@ namespace TabletopComputing.Views
                 else if (tagviz.Content.Equals("Lead"))
                 {
                     AddBeatTag(id, "lead2");
+                }
+                else if (tagviz.Content.Equals("Crash"))
+                {
+                    AddBeatTag(id, "crash2");
+                }
+                else if (tagviz.Content.Equals("Bass"))
+                {
+                    AddBeatTag(id, "bass2");
                 }
                 tagviz.IsEnabled = false;
             }

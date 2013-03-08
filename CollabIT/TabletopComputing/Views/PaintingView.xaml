@@ -8,25 +8,25 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="TabletopComputing.Views.PaintingView"
              x:Name="This"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="1600">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Resources>
     	<data:SurfaceInkEditingModeToBoolConverter x:Key="SurfaceInkEditingModeToBoolConverter" />
     	<Storyboard x:Key="CenterGrow" RepeatBehavior="Forever">
     		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.455"/>
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="4.182"/>
     		</DoubleAnimationUsingKeyFrames>
     		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-16"/>
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
     		</DoubleAnimationUsingKeyFrames>
     		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.455"/>
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="5.091"/>
     		</DoubleAnimationUsingKeyFrames>
     		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:1" Value="24"/>
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="72"/>
     		</DoubleAnimationUsingKeyFrames>
-    		<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
-    			<EasingColorKeyFrame KeyTime="0:0:1" Value="#FFC59921"/>
-    		</ColorAnimationUsingKeyFrames>
+    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.185"/>
+    		</DoubleAnimationUsingKeyFrames>
     	</Storyboard>
     </UserControl.Resources>
 	<UserControl.Triggers>
@@ -39,57 +39,57 @@
     			<VisualState x:Name="Disabled"/>
     		</VisualStateGroup>
     	</VisualStateManager.VisualStateGroups>
-        <s:TagVisualizer x:Name="TagVisualizer" Margin="0,0,0,164" PreviewVisualizationAdded="TagAddedToLoop" PreviewVisualizationRemoved="TagRemovedFromLoop" Panel.ZIndex="-2">
+        <s:TagVisualizer x:Name="TagVisualizer" Margin="0,0,0,-0.167" PreviewVisualizationAdded="TagAddedToLoop" PreviewVisualizationRemoved="TagRemovedFromLoop" Panel.ZIndex="-2">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
-        			<GradientStop Color="#FF3E454C" Offset="0"/>
-        			<GradientStop Color="#FF3E454C" Offset="1"/>
+        			<GradientStop Color="#FF272727" Offset="0.004"/>
+        			<GradientStop Color="Black" Offset="0.97"/>
         		</RadialGradientBrush>
         	</s:TagVisualizer.Background>
             <s:TagVisualizer.Definitions>
             	
             	<s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="0"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="1"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="2"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="3"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="4"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="5"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="6"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="4"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="7"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="8"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
-            		TagRemovedBehavior="Fade"
+            		TagRemovedBehavior="Disappear"
             		Value="9"
             		MaxCount="1"  />
                 
@@ -102,7 +102,7 @@
                                Margin="100" />
             </Grid>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tagvisKick" Content="Kick" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Height="112" Width="128" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48">
+        <s:TagVisualizer x:Name="tagvisKick" Content="Kick" HorizontalAlignment="Left" Margin="272,0,0,12" VerticalAlignment="Bottom" Height="112" Width="128" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
         			<GradientStop Color="#FFEBEBEB" Offset="0"/>
@@ -120,7 +120,7 @@
         		</ei:DataStateBehavior>
         	</i:Interaction.Behaviors>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tgSnare" Content="Snare" HorizontalAlignment="Left" Margin="128,0,0,4" VerticalAlignment="Bottom" Height="112" Width="128" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48">
+        <s:TagVisualizer x:Name="tgSnare" Content="Snare" HorizontalAlignment="Left" Margin="414,0,0,12" VerticalAlignment="Bottom" Height="112" Width="128" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
         			<GradientStop Color="#FFEBEBEB" Offset="0"/>
@@ -131,7 +131,7 @@
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tgPiano" Content="Piano" Margin="744,0,728,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48">
+        <s:TagVisualizer x:Name="tgOpenHH" Content="Open HH" Margin="556,0,0,12" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48" HorizontalAlignment="Left" Width="128" Height="112" VerticalAlignment="Bottom">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
         			<GradientStop Color="#FFEBEBEB" Offset="0"/>
@@ -142,7 +142,7 @@
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tgOpenHH" Content="Open HH" Margin="256,0,0,4" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48" HorizontalAlignment="Left" Width="128" Height="112" VerticalAlignment="Bottom">
+        <s:TagVisualizer x:Name="tgClosedHH" Content="Closed HH" Margin="698,0,0,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48" HorizontalAlignment="Left" Width="128">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
         			<GradientStop Color="#FFEBEBEB" Offset="0"/>
@@ -153,7 +153,7 @@
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tgClosedHH" Content="Closed HH" Margin="384,0,0,4" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48" HorizontalAlignment="Left" Width="128">
+        <s:TagVisualizer x:Name="tgCrash" Content="Crash" Margin="840,0,955,11.999" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
         			<GradientStop Color="#FFEBEBEB" Offset="0"/>
@@ -164,7 +164,7 @@
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tgLead" Content="Lead" Margin="0,0,600,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48" HorizontalAlignment="Right" Width="128">
+        <s:TagVisualizer x:Name="tgPiano" Content="Piano" Margin="0,0,764,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48" HorizontalAlignment="Right" Width="128">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
         			<GradientStop Color="#FFEBEBEB" Offset="0"/>
@@ -175,7 +175,7 @@
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
         </s:TagVisualizer>
-        <s:TagVisualizer x:Name="tgWNoise" Content="WNoise" Margin="0,0,192,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="Black" FontSize="48" HorizontalAlignment="Right" Width="128">
+        <s:TagVisualizer x:Name="tgLead" Content="Lead" Margin="0,0,622,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48" HorizontalAlignment="Right" Width="128">
         	<s:TagVisualizer.Background>
         		<RadialGradientBrush>
         			<GradientStop Color="#FFEBEBEB" Offset="0"/>
@@ -186,7 +186,35 @@
         		<s:TagVisualizationDefinition/>
         	</s:TagVisualizer.Definitions>
         </s:TagVisualizer>
-        <Ellipse x:Name="ellipse" Fill="#FF2185C5" Margin="704,272,720,0" Height="176" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+        <s:TagVisualizer x:Name="tgBass" Content="Bass" Margin="0,0,480,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48" HorizontalAlignment="Right" Width="128">
+        	<s:TagVisualizer.Background>
+        		<RadialGradientBrush>
+        			<GradientStop Color="#FFEBEBEB" Offset="0"/>
+        			<GradientStop Color="#FFC2C2C2" Offset="1"/>
+        		</RadialGradientBrush>
+        	</s:TagVisualizer.Background>
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
+        </s:TagVisualizer>
+        <s:TagVisualizer x:Name="tgWNoise" Content="WNoise" Margin="0,0,296,12" VerticalAlignment="Bottom" Height="112" PreviewVisualizationAdded="TagEnter" PreviewVisualizationMoved="TagEnter" Foreground="{x:Null}" FontSize="48" HorizontalAlignment="Right" Width="128">
+        	<s:TagVisualizer.Background>
+        		<RadialGradientBrush>
+        			<GradientStop Color="#FFEBEBEB" Offset="0"/>
+        			<GradientStop Color="#FFC2C2C2" Offset="1"/>
+        		</RadialGradientBrush>
+        	</s:TagVisualizer.Background>
+        	<s:TagVisualizer.Definitions>
+        		<s:TagVisualizationDefinition/>
+        	</s:TagVisualizer.Definitions>
+        </s:TagVisualizer>
+        <Ellipse x:Name="ellipse" Margin="712,352,712,0" Height="176" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1" Opacity="0.435">
+        	<Ellipse.Fill>
+        		<RadialGradientBrush>
+        			<GradientStop x:Name="grad1" Color="#FFF1F1F1" Offset="0"/>
+        			<GradientStop  x:Name="grad2" Color="#00D6D6D6" Offset="1"/>
+        		</RadialGradientBrush>
+        	</Ellipse.Fill>
         	<Ellipse.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform/>
@@ -196,8 +224,15 @@
         		</TransformGroup>
         	</Ellipse.RenderTransform>
         </Ellipse>
-        <TextBlock x:Name="tbBeatCounter" Height="104" Margin="776,320,704,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Foreground="White"><Run Language="sv-se" Text="1"/></TextBlock>
-        <Canvas x:Name="beat1" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="-192,584,0,0">
+        <TextBlock x:Name="tbBeatCounter" Margin="824,277.333,824,536" TextWrapping="Wrap" FontSize="266.667" FontFamily="Nomed 1010" TextAlignment="Center" HorizontalAlignment="Center" d:LayoutOverrides="Height"><TextBlock.Foreground>
+        		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        			<GradientStop Color="#FFE5E5E5"/>
+        			<GradientStop Color="#FFA7A7A7" Offset="0.99"/>
+        			<GradientStop Color="#FFE5E5E5" Offset="0.461"/>
+        			<GradientStop Color="#FFA7A7A7" Offset="0.509"/>
+        		</LinearGradientBrush>
+        	</TextBlock.Foreground><Run Language="sv-se" Text="1"/></TextBlock>
+        <Canvas x:Name="beat1" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="80,756.5,0,0">
         	<Canvas.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform ScaleY="0.2" ScaleX="0.2"/>
@@ -213,7 +248,7 @@
         		<Path Data="M256,256L0,512L49,512L256,302.334L463,512L512,512L256,256z" Height="257" Canvas.Left="-0.5" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="255.5" Width="513"/>
         	</Canvas>
         </Canvas>
-        <Canvas x:Name="beat2" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="-64,584,0,0">
+        <Canvas x:Name="beat2" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="224,756.5,0,0">
         	<Canvas.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform ScaleX="0.2" ScaleY="0.2"/>
@@ -228,7 +263,7 @@
         		<Path Data="M249.5,239L16.5,472L42.5,495L249.5,285.334L505.5,32L481.5,7L249.5,239z" Fill="#FF1D1D1B" Height="489" Canvas.Left="16" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="6.5" Width="490"/>
         	</Canvas>
         </Canvas>
-        <Canvas x:Name="beat3" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="64,584,0,0">
+        <Canvas x:Name="beat3" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="365.5,756,0,0">
         	<Canvas.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform ScaleY="0.2" ScaleX="0.2"/>
@@ -245,7 +280,7 @@
         		<Path Data="M488.6943,277.2969L276.4303,489.5619L300.1173,510.5149L488.6943,319.5079L510.1033,299.6169L488.2393,276.8419L488.6943,277.2969z" Height="234.673" Canvas.Left="275.534" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="277.356" Width="234.673"/>
         	</Canvas>
         </Canvas>
-        <Canvas x:Name="beat4" HorizontalAlignment="Left" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="192,592,0,0">
+        <Canvas x:Name="beat4" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="374,765,714,0">
         	<Canvas.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform ScaleY="0.2" ScaleX="0.2"/>
@@ -270,7 +305,23 @@
         		<Path Data="M512,256.8408L350,93.5608L331,113.9908L474.715,256.8408L331.856,398.0088L350.856,418.4388L512,256.8408z" Height="325.878" Canvas.Left="330.5" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="24.061" Width="182"/>
         	</Canvas>
         </Canvas>
-        <Canvas x:Name="melody1" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="552,576,536,0">
+        <Canvas x:Name="extra1" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="512,752,576,0">
+        	<Canvas.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform ScaleY="0.17" ScaleX="0.17"/>
+        			<SkewTransform/>
+        			<RotateTransform/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</Canvas.RenderTransform>
+        	<Canvas x:Name="Layer_7" Height="512.002" Canvas.Left="0" Canvas.Top="0" Width="512">
+        		<Path Data="F1M255.9996,-9.99999999748979E-05L0.000599999999991496,511.9999L511.9996,511.9999z M255.9996,88.0969L447.9006,471.8989L64.0996,471.8989z" Fill="#FF1D1D1B" Height="512" Canvas.Left="0.001" Stretch="Fill" Canvas.Top="0" Width="511.999"/>
+        		<Path Data="M447.9004,471.8984L256.0004,88.0974L64.1004,471.8984L447.9004,471.8984z M0.000400000000013279,512.0014L256.0004,0.000399999999956435L512.0004,512.0014L0.000400000000013279,512.0014z" Height="513.001" Canvas.Left="-0.5" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="-0.5" Width="513"/>
+        		<Path Data="F1M0,248.591L512,248.591L512,221.593L0,221.593z" Fill="#FF1D1D1B" Height="26.998" Canvas.Left="0" Stretch="Fill" Canvas.Top="221.593" Width="512"/>
+        		<Path Data="M0,221.592L512,221.592L512,248.591L0,248.591z" Height="27.999" Canvas.Left="-0.5" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="221.092" Width="513"/>
+        	</Canvas>
+        </Canvas>
+        <Canvas x:Name="melody1" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="705.334,754.668,382.666,0">
         	<Canvas.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform ScaleY="0.2" ScaleX="0.2"/>
@@ -285,7 +336,7 @@
         		<Path Data="F1M184.4473,328.1035L310.4703,205.5525L331.3853,227.0605L204.4923,350.4575z" Fill="Black" Height="144.905" Canvas.Left="10.16" Stretch="Fill" Canvas.Top="203.844" Width="146.938"/>
         	</Canvas>
         </Canvas>
-        <Canvas x:Name="melody2" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Margin="672,576,416,0">
+        <Canvas x:Name="melody2" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Margin="0,754.668,432,0" HorizontalAlignment="Right" Width="512">
         	<Canvas x:Name="Layer_6" Height="509.077" Canvas.Left="174.287" Canvas.Top="1.709" Width="167.259" RenderTransformOrigin="0.5,0.5">
         		<Canvas.RenderTransform>
         			<TransformGroup>
@@ -300,7 +351,7 @@
         		<Path Data="F1M257.916,388.4687C257.916,399.7907,248.739,408.9687,237.416,408.9687C226.094,408.9687,216.916,399.7907,216.916,388.4687C216.916,377.1477,226.094,367.9687,237.416,367.9687C248.739,367.9687,257.916,377.1477,257.916,388.4687" Fill="Black" Height="41" Canvas.Left="42.629" Stretch="Fill" Canvas.Top="366.26" Width="41"/>
         	</Canvas>
         </Canvas>
-        <Canvas x:Name="extra1" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="312,576,776,0">
+        <Canvas x:Name="melody3" HorizontalAlignment="Right" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="0,756.002,286.666,0">
         	<Canvas.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform ScaleY="0.2" ScaleX="0.2"/>
@@ -309,14 +360,12 @@
         			<TranslateTransform/>
         		</TransformGroup>
         	</Canvas.RenderTransform>
-        	<Canvas x:Name="Layer_7" Height="512.002" Canvas.Left="0" Canvas.Top="0" Width="512">
-        		<Path Data="F1M255.9996,-9.99999999748979E-05L0.000599999999991496,511.9999L511.9996,511.9999z M255.9996,88.0969L447.9006,471.8989L64.0996,471.8989z" Fill="#FF1D1D1B" Height="512" Canvas.Left="0.001" Stretch="Fill" Canvas.Top="0" Width="511.999"/>
-        		<Path Data="M447.9004,471.8984L256.0004,88.0974L64.1004,471.8984L447.9004,471.8984z M0.000400000000013279,512.0014L256.0004,0.000399999999956435L512.0004,512.0014L0.000400000000013279,512.0014z" Height="513.001" Canvas.Left="-0.5" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="-0.5" Width="513"/>
-        		<Path Data="F1M0,248.591L512,248.591L512,221.593L0,221.593z" Fill="#FF1D1D1B" Height="26.998" Canvas.Left="0" Stretch="Fill" Canvas.Top="221.593" Width="512"/>
-        		<Path Data="M0,221.592L512,221.592L512,248.591L0,248.591z" Height="27.999" Canvas.Left="-0.5" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="221.092" Width="513"/>
+        	<Canvas x:Name="Layer_9" Height="509.077" Canvas.Left="106.287" Canvas.Top="2.923" Width="295.259">
+        		<Path Data="F1M232.4883,65.3027C195.5783,57.8947,171.8003,81.3237,163.5473,122.4457C158.2243,148.9697,169.2493,186.3717,193.5763,210.1587L218.6693,238.5927C245.8733,265.1347,255.4063,282.9357,263.9093,308.0407C272.4033,333.1577,277.0733,353.3237,270.3163,386.9887C261.7643,429.6037,245.7613,462.4117,218.3083,485.4147C190.8533,508.4257,160.0343,516.4957,125.8483,509.6357L139.6273,451.6507C156.1373,454.9667,174.0353,447.1637,187.6673,435.6377C201.2943,424.1187,209.1743,404.0727,213.3003,383.5107C219.3413,353.4207,213.8733,315.6277,187.3243,289.8417L158.2113,254.2147C136.7813,226.9027,103.4433,193.2137,106.4813,119.8267C108.2663,76.7107,131.4183,46.1777,155.8143,25.8067C180.2103,5.44370000000001,209.4063,-1.33229999999999,243.4003,5.48970000000001z" Fill="Black" Height="509.077" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="167.259"/>
+        		<Path Data="F1M360.4883,65.3027C323.5783,57.8947,299.8003,81.3237,291.5473,122.4457C286.2243,148.9697,297.2493,186.3717,321.5763,210.1587L346.6693,238.5927C373.8733,265.1347,383.4063,282.9357,391.9093,308.0407C400.4033,333.1577,405.0733,353.3237,398.3163,386.9887C389.7643,429.6037,373.7613,462.4117,346.3083,485.4147C318.8533,508.4257,288.0353,516.4957,253.8483,509.6357L267.6273,451.6507C284.1363,454.9667,302.0353,447.1637,315.6673,435.6377C329.2943,424.1187,337.1743,404.0727,341.3003,383.5107C347.3413,353.4207,341.8733,315.6277,315.3243,289.8417L286.2113,254.2147C264.7813,226.9027,231.4433,193.2137,234.4813,119.8267C236.2663,76.7107,259.4183,46.1777,283.8143,25.8067C308.2103,5.44370000000001,337.4063,-1.33229999999999,371.4003,5.48970000000001z" Fill="Black" Height="509.077" Canvas.Left="128" Stretch="Fill" Canvas.Top="0" Width="167.259"/>
         	</Canvas>
         </Canvas>
-        <Canvas x:Name="extra2" HorizontalAlignment="Right" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="0,576,0,0">
+        <Canvas x:Name="extra2" HorizontalAlignment="Right" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="0,756.669,104,0">
         	<Canvas.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform ScaleY="0.2" ScaleX="0.2"/>
@@ -330,20 +379,6 @@
         		<Path Data="M447.9004,471.8984L256.0004,88.0974L64.1004,471.8984L447.9004,471.8984z M0.000400000000013279,512.0014L256.0004,0.000399999999956435L512.0004,512.0014L0.000400000000013279,512.0014z" Height="513.001" Canvas.Left="-0.499" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="-0.499" Width="513"/>
         		<Path Data="F1M0,-9.99999999748979E-05L256,511.9999L512,-9.99999999748979E-05z M64.1,40.1019L447.899,40.1019L256,423.9029z" Fill="#FF1D1D1B" Height="512" Canvas.Left="0" Stretch="Fill" Canvas.Top="0.001" Width="512"/>
         		<Path Data="M64.0996,40.1021L255.9996,423.9021L447.8996,40.1021L64.0996,40.1021z M511.9996,-0.00089999999999435L255.9996,512.0001L-0.000399999999999068,-0.00089999999999435L511.9996,-0.00089999999999435z" Height="513.001" Canvas.Left="-0.5" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="#FF1D1D1B" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Canvas.Top="-0.5" Width="513"/>
-        	</Canvas>
-        </Canvas>
-        <Canvas x:Name="melody3" HorizontalAlignment="Right" Height="512" UseLayoutRounding="False" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.5,0.5" Margin="0,576,288,0">
-        	<Canvas.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform ScaleY="0.2" ScaleX="0.2"/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</Canvas.RenderTransform>
-        	<Canvas x:Name="Layer_9" Height="509.077" Canvas.Left="106.287" Canvas.Top="2.923" Width="295.259">
-        		<Path Data="F1M232.4883,65.3027C195.5783,57.8947,171.8003,81.3237,163.5473,122.4457C158.2243,148.9697,169.2493,186.3717,193.5763,210.1587L218.6693,238.5927C245.8733,265.1347,255.4063,282.9357,263.9093,308.0407C272.4033,333.1577,277.0733,353.3237,270.3163,386.9887C261.7643,429.6037,245.7613,462.4117,218.3083,485.4147C190.8533,508.4257,160.0343,516.4957,125.8483,509.6357L139.6273,451.6507C156.1373,454.9667,174.0353,447.1637,187.6673,435.6377C201.2943,424.1187,209.1743,404.0727,213.3003,383.5107C219.3413,353.4207,213.8733,315.6277,187.3243,289.8417L158.2113,254.2147C136.7813,226.9027,103.4433,193.2137,106.4813,119.8267C108.2663,76.7107,131.4183,46.1777,155.8143,25.8067C180.2103,5.44370000000001,209.4063,-1.33229999999999,243.4003,5.48970000000001z" Fill="Black" Height="509.077" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="167.259"/>
-        		<Path Data="F1M360.4883,65.3027C323.5783,57.8947,299.8003,81.3237,291.5473,122.4457C286.2243,148.9697,297.2493,186.3717,321.5763,210.1587L346.6693,238.5927C373.8733,265.1347,383.4063,282.9357,391.9093,308.0407C400.4033,333.1577,405.0733,353.3237,398.3163,386.9887C389.7643,429.6037,373.7613,462.4117,346.3083,485.4147C318.8533,508.4257,288.0353,516.4957,253.8483,509.6357L267.6273,451.6507C284.1363,454.9667,302.0353,447.1637,315.6673,435.6377C329.2943,424.1187,337.1743,404.0727,341.3003,383.5107C347.3413,353.4207,341.8733,315.6277,315.3243,289.8417L286.2113,254.2147C264.7813,226.9027,231.4433,193.2137,234.4813,119.8267C236.2663,76.7107,259.4183,46.1777,283.8143,25.8067C308.2103,5.44370000000001,337.4063,-1.33229999999999,371.4003,5.48970000000001z" Fill="Black" Height="509.077" Canvas.Left="128" Stretch="Fill" Canvas.Top="0" Width="167.259"/>
         	</Canvas>
         </Canvas>
        
