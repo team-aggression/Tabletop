@@ -48,7 +48,7 @@ namespace TabletopComputing.Controls
             Debug.Assert(mainWindow != null);
             _paintingView = mainWindow.ShellView.PaintingView;
 
-            sb = this.FindResource("CenterGrow") as Storyboard;
+            sb = this.FindResource("TagGrow") as Storyboard;
             sb.Duration = new Duration(TimeSpan.FromMilliseconds(_paintingView.BEATCONSTANT / 16));
 
             Random random = new Random();
@@ -66,6 +66,7 @@ namespace TabletopComputing.Controls
             //tbSampleName.Text = _paintingView.GetSampleFromID(this.VisualizedTag.Value);
 
             //_paintingView.addRemoveBeat("kick2.wav");
+            sb.Begin();
         }
 
         public void Animate()

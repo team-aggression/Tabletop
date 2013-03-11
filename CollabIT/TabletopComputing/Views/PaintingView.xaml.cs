@@ -206,8 +206,8 @@ namespace TabletopComputing.Views
                 stopwatch.Reset();
                 stopwatch.Start();
 
-                foreach (BeatTag bt in tags)
-                    bt.Animate();
+                //foreach (BeatTag bt in tags)
+                    //bt.Animate();
 
                 foreach (long tagid in registeredTags)
                 {

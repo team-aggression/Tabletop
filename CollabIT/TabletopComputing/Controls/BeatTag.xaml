@@ -11,25 +11,23 @@
 	<s:TagVisualization.Resources>
 		<Storyboard x:Key="TagGrow">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="4.625"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="4.625"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="4.625"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="4.625"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="4"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-4"/>
 			</DoubleAnimationUsingKeyFrames>
 			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="ellipse">
-				<EasingColorKeyFrame KeyTime="0:0:1" Value="#00D4FF66"/>
+				<EasingColorKeyFrame KeyTime="0:0:0.8" Value="#00D4FF66"/>
 			</ColorAnimationUsingKeyFrames>
 		</Storyboard>
+		<Storyboard x:Key="Grow"/>
 	</s:TagVisualization.Resources>
-	<s:TagVisualization.Triggers>
-		<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
-	</s:TagVisualization.Triggers>
     <Grid Width="600" Height="600">
         <Ellipse x:Name="ellipse" Margin="172,200.245,200,168" Panel.ZIndex="10" RenderTransformOrigin="0.5,0.5" StrokeThickness="0">
         	<Ellipse.RenderTransform>
