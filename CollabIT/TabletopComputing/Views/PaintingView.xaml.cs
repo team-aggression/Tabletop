@@ -86,6 +86,16 @@ namespace TabletopComputing.Views
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Start();
 
+            AddBeatTag(0, "kick2");
+            AddBeatTag(1, "piano2");
+            AddBeatTag(2, "snare2");
+            AddBeatTag(3, "hihat_open2");
+            AddBeatTag(4, "hihat_closed2");
+            AddBeatTag(5, "wnoise2");
+            AddBeatTag(6, "lead2");
+            AddBeatTag(7, "crash2");
+            AddBeatTag(8, "bass2");            
+
         }
 
         protected override void OnInitialized(EventArgs e)
@@ -133,61 +143,11 @@ namespace TabletopComputing.Views
         {
             if (registeredTags.Contains(id))
             {
-                if(beatTags.ContainsKey(id))
-                    EnableDisableSample(beatTags[id],true);
                 registeredTags.Remove(id);
             }
         }
 
-        private void EnableDisableSample(string sample, bool enabled)
-        {
-            if (sample.Equals("kick2.wav"))
-            {
-                tagvisKick.IsEnabled = enabled;
-                ColorSample(tagvisKick, enabled);
-            }
-            else if (sample.Equals("lead2.wav"))
-            {
-                tgLead.IsEnabled = enabled;
-                ColorSample(tgLead, enabled);
-            }
-            else if (sample.Equals("snare2.wav"))
-            {
-                tgSnare.IsEnabled = enabled;
-                ColorSample(tgSnare, enabled);
-            }
-            else if (sample.Equals("piano2.wav"))
-            {
-                tgPiano.IsEnabled = enabled;
-                ColorSample(tgPiano, enabled);
-            }
-            else if (sample.Equals("hihat_open2.wav"))
-            {
-                tgOpenHH.IsEnabled = enabled;
-                ColorSample(tgOpenHH, enabled);
-            }
-            else if (sample.Equals("hihat_closed2.wav"))
-            {
-                tgClosedHH.IsEnabled = enabled;
-                ColorSample(tgClosedHH, enabled);
-            }
-            else if (sample.Equals("wnoise2.wav"))
-            {
-                tgWNoise.IsEnabled = enabled;
-                ColorSample(tgWNoise, enabled);
-            }
-            else if (sample.Equals("crash2.wav"))
-            {
-                tgCrash.IsEnabled = enabled;
-                ColorSample(tgCrash, enabled);
-            }
-            else if (sample.Equals("bass2.wav"))
-            {
-                tgBass.IsEnabled = enabled;
-                ColorSample(tgBass, enabled);
-            }
-
-        }
+     
 
         private void ColorSample(TagVisualizer tg, bool enabled)
         {
@@ -256,53 +216,53 @@ namespace TabletopComputing.Views
             CommandManager.InvalidateRequerySuggested();
         }
 
-        private void TagEnter(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
-        {
+        //private void TagEnter(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
+        //{
             
-        	var id = e.TagVisualization.VisualizedTag.Value;
-			var tagviz = sender as TagVisualizer;
-            if (tagviz != null)
-            {
-                if (tagviz.Content.Equals("Kick"))
-                {
-                    AddBeatTag(id,"kick2");
-                }
-                else if (tagviz.Content.Equals("Piano"))
-                {
-                    AddBeatTag(id, "piano2");
-                }
-                else if (tagviz.Content.Equals("Snare"))
-                {
-                    AddBeatTag(id, "snare2");
-                }
-                else if (tagviz.Content.Equals("Open HH"))
-                {
-                    AddBeatTag(id, "hihat_open2");
-                }
-                else if (tagviz.Content.Equals("Closed HH"))
-                {
-                    AddBeatTag(id, "hihat_closed2");
-                }
-                else if (tagviz.Content.Equals("WNoise"))
-                {
-                    AddBeatTag(id, "wnoise2");
-                }
-                else if (tagviz.Content.Equals("Lead"))
-                {
-                    AddBeatTag(id, "lead2");
-                }
-                else if (tagviz.Content.Equals("Crash"))
-                {
-                    AddBeatTag(id, "crash2");
-                }
-                else if (tagviz.Content.Equals("Bass"))
-                {
-                    AddBeatTag(id, "bass2");
-                }
-                tagviz.IsEnabled = false;
-            }
-			// TODO: Add event handler implementation here.
-        }
+        //    var id = e.TagVisualization.VisualizedTag.Value;
+        //    var tagviz = sender as TagVisualizer;
+        //    if (tagviz != null)
+        //    {
+        //        if (tagviz.Content.Equals("Kick"))
+        //        {
+        //            AddBeatTag(id,"kick2");
+        //        }
+        //        else if (tagviz.Content.Equals("Piano"))
+        //        {
+        //            AddBeatTag(id, "piano2");
+        //        }
+        //        else if (tagviz.Content.Equals("Snare"))
+        //        {
+        //            AddBeatTag(id, "snare2");
+        //        }
+        //        else if (tagviz.Content.Equals("Open HH"))
+        //        {
+        //            AddBeatTag(id, "hihat_open2");
+        //        }
+        //        else if (tagviz.Content.Equals("Closed HH"))
+        //        {
+        //            AddBeatTag(id, "hihat_closed2");
+        //        }
+        //        else if (tagviz.Content.Equals("WNoise"))
+        //        {
+        //            AddBeatTag(id, "wnoise2");
+        //        }
+        //        else if (tagviz.Content.Equals("Lead"))
+        //        {
+        //            AddBeatTag(id, "lead2");
+        //        }
+        //        else if (tagviz.Content.Equals("Crash"))
+        //        {
+        //            AddBeatTag(id, "crash2");
+        //        }
+        //        else if (tagviz.Content.Equals("Bass"))
+        //        {
+        //            AddBeatTag(id, "bass2");
+        //        }
+        //        tagviz.IsEnabled = false;
+        //    }
+        //    // TODO: Add event handler implementation here.
+        //}
 
         private void AddBeatTag(long id, string sample)
         {
@@ -312,10 +272,8 @@ namespace TabletopComputing.Views
             }
             else
             {
-                EnableDisableSample(beatTags[id], true);
                 beatTags[id] = sample + ".wav";
             }
-            EnableDisableSample(beatTags[id], false);
         }
 
         private void TagAddedToLoop(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
