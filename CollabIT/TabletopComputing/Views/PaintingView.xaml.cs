@@ -50,7 +50,7 @@ namespace TabletopComputing.Views
         const int NROFBEATS = 2;
         const int BPM = 128;
 
-        String BEATSPATH = "Song/";
+        String BEATSPATH = "Song2/";
 
         public int BEATCONSTANT;
 
