@@ -9,7 +9,7 @@
              x:Name="This"
              d:DesignHeight="600" d:DesignWidth="600">
 	<s:TagVisualization.Resources>
-		<Storyboard x:Key="TagGrow">
+		<Storyboard x:Key="TagGrow" AutoReverse="False" RepeatBehavior="Forever">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="4.625"/>
 			</DoubleAnimationUsingKeyFrames>
