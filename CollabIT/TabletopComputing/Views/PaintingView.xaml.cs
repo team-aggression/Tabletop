@@ -87,6 +87,8 @@ namespace TabletopComputing.Views
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Start();
 
+            tbBeatCounter.Visibility = System.Windows.Visibility.Collapsed;
+
             AddBeatTag(0, "kick2");
             AddBeatTag(1, "piano2");
             AddBeatTag(2, "snare2");
@@ -217,13 +219,13 @@ namespace TabletopComputing.Views
                 stopwatch.Reset();
                 stopwatch.Start();
 
-                //foreach (BeatTag bt in tags)
-                    //bt.Animate();
+                foreach (BeatTag bt in tags)
+                    bt.Animate();
 
                 foreach (long tagid in registeredTags)
                 {
                     if(beatTags.ContainsKey(tagid))
-                        engine.Play2D("Song/" + beatTags[tagid]);
+                        engine.Play2D(BEATSPATH + beatTags[tagid]);
                 }
 
             }

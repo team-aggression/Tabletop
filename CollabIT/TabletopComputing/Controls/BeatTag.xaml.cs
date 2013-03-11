@@ -66,7 +66,7 @@ namespace TabletopComputing.Controls
             //tbSampleName.Text = _paintingView.GetSampleFromID(this.VisualizedTag.Value);
 
             //_paintingView.addRemoveBeat("kick2.wav");
-            sb.Begin();
+            //sb.Begin();
         }
 
         public void Animate()
