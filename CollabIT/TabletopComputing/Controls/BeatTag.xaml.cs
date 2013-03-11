@@ -36,6 +36,8 @@ namespace TabletopComputing.Controls
             InitializeComponent();
         }
 
+        Storyboard sb;
+
         void OnLoaded(object sender, RoutedEventArgs e)
         {
             // Add to registry
@@ -46,7 +48,7 @@ namespace TabletopComputing.Controls
             Debug.Assert(mainWindow != null);
             _paintingView = mainWindow.ShellView.PaintingView;
 
-            var sb = this.FindResource("CenterGrow") as Storyboard;
+            sb = this.FindResource("CenterGrow") as Storyboard;
             sb.Duration = new Duration(TimeSpan.FromMilliseconds(_paintingView.BEATCONSTANT / 16));
 
             Random random = new Random();
@@ -60,11 +62,15 @@ namespace TabletopComputing.Controls
             grad1.Color = (Color)ColorConverter.ConvertFromString("#" + hexValue);
 
             Storyboard.SetTarget(sb, this.ellipse);
-            sb.Begin();
 
             //tbSampleName.Text = _paintingView.GetSampleFromID(this.VisualizedTag.Value);
 
             //_paintingView.addRemoveBeat("kick2.wav");
+        }
+
+        public void Animate()
+        {
+            sb.Begin();
         }
 
         void OnUnloaded(object sender, RoutedEventArgs e)

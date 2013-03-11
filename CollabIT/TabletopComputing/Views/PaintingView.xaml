@@ -11,23 +11,7 @@
              d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Resources>
     	<data:SurfaceInkEditingModeToBoolConverter x:Key="SurfaceInkEditingModeToBoolConverter" />
-    	<Storyboard x:Key="CenterGrow" RepeatBehavior="Forever">
-    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="4.182"/>
-    		</DoubleAnimationUsingKeyFrames>
-    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
-    		</DoubleAnimationUsingKeyFrames>
-    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="5.091"/>
-    		</DoubleAnimationUsingKeyFrames>
-    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="72"/>
-    		</DoubleAnimationUsingKeyFrames>
-    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
-    			<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.185"/>
-    		</DoubleAnimationUsingKeyFrames>
-    	</Storyboard>
+    	<Storyboard x:Key="CenterGrow" RepeatBehavior="Forever"/>
     </UserControl.Resources>
 	<UserControl.Triggers>
 		<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
@@ -74,7 +58,7 @@
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
             		TagRemovedBehavior="Disappear"
-            		Value="6"
+            		Value="9"
             		MaxCount="1"  />
                 <s:TagVisualizationDefinition Source="Controls/BeatTag.xaml"
             		TagRemovedBehavior="Disappear"
@@ -95,26 +79,10 @@
                 <s:ScatterView x:Name="TagVisualizerScatterView"
                                s:TagVisualizer.IsTagVisualizationHost="True"
                                ItemContainerStyle="{DynamicResource EmptyScatterViewItemStyle}"
-                               Margin="100" />
+                               Margin="8,0,8,8" />
             </Grid>
         </s:TagVisualizer>
-        <Ellipse x:Name="ellipse" Margin="712,352,712,0" Height="176" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1" Opacity="0.435">
-        	<Ellipse.Fill>
-        		<RadialGradientBrush>
-        			<GradientStop x:Name="grad1" Color="#FFF1F1F1" Offset="0"/>
-        			<GradientStop  x:Name="grad2" Color="#00D6D6D6" Offset="1"/>
-        		</RadialGradientBrush>
-        	</Ellipse.Fill>
-        	<Ellipse.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</Ellipse.RenderTransform>
-        </Ellipse>
-        <TextBlock x:Name="tbBeatCounter" Margin="824,277.333,824,536" TextWrapping="Wrap" FontSize="266.667" FontFamily="Nomed 1010" TextAlignment="Center" HorizontalAlignment="Center" d:LayoutOverrides="Height"><TextBlock.Foreground>
+        <TextBlock x:Name="tbBeatCounter" Margin="824,376.667,824,409.871" TextWrapping="Wrap" FontSize="266.667" FontFamily="OCR A Std" TextAlignment="Center" HorizontalAlignment="Center"><TextBlock.Foreground>
         		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
         			<GradientStop Color="#FFE5E5E5"/>
         			<GradientStop Color="#FFA7A7A7" Offset="0.99"/>

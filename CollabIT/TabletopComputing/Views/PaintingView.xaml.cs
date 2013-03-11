@@ -61,6 +61,7 @@ namespace TabletopComputing.Views
         Stopwatch stopwatch;
         List<long> registeredTags;
         Storyboard sb;
+        List<BeatTag> tags;
 
 
         public PaintingView()
@@ -73,10 +74,10 @@ namespace TabletopComputing.Views
             beatTags = new Dictionary<long, string>();
             BEATCONSTANT = 1000 * 60 * 8 * NROFBEATS / BPM;
 
-            sb = this.FindResource("CenterGrow") as Storyboard;
-            sb.Duration = new Duration(TimeSpan.FromMilliseconds(BEATCONSTANT / 16));
-            
-            Storyboard.SetTarget(sb, this.ellipse);
+            //sb = this.FindResource("CenterGrow") as Storyboard;
+            //sb.Duration = new Duration(TimeSpan.FromMilliseconds(BEATCONSTANT / 16));
+
+            tags = new List<BeatTag>();
 
             stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -92,7 +93,7 @@ namespace TabletopComputing.Views
             AddBeatTag(3, "hihat_open2");
             AddBeatTag(4, "hihat_closed2");
             AddBeatTag(5, "wnoise2");
-            AddBeatTag(6, "lead2");
+            AddBeatTag(9, "lead2");
             AddBeatTag(7, "crash2");
             AddBeatTag(8, "bass2");            
 
@@ -190,7 +191,7 @@ namespace TabletopComputing.Views
                 if (first)
                 {
                     first = false;
-                    sb.Begin();
+                    //sb.Begin();
                 }
 
                 //Random random = new Random();
@@ -204,6 +205,9 @@ namespace TabletopComputing.Views
 
                 stopwatch.Reset();
                 stopwatch.Start();
+
+                foreach (BeatTag bt in tags)
+                    bt.Animate();
 
                 foreach (long tagid in registeredTags)
                 {
@@ -278,6 +282,9 @@ namespace TabletopComputing.Views
 
         private void TagAddedToLoop(object sender, Microsoft.Surface.Presentation.Controls.TagVisualizerEventArgs e)
         {
+            var tag = e.TagVisualization as BeatTag;
+            if (!tags.Contains(tag))
+                tags.Add(tag);
 			var id = e.TagVisualization.VisualizedTag.Value;
             //if(beatTags.ContainsKey(id)) {
             //    string beat = beatTags[id];
