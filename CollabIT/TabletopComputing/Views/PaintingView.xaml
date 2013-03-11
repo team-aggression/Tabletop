@@ -82,7 +82,7 @@
                                Margin="8,0,8,8" />
             </Grid>
         </s:TagVisualizer>
-        <TextBlock x:Name="tbBeatCounter" Margin="824,376.667,824,409.871" TextWrapping="Wrap" FontSize="266.667" FontFamily="OCR A Std" TextAlignment="Center" HorizontalAlignment="Center"><TextBlock.Foreground>
+        <TextBlock x:Name="tbBeatCounter" Margin="824,376.667,824,409.871" TextWrapping="Wrap" FontSize="266.667" FontFamily="OCR A Std" TextAlignment="Center" HorizontalAlignment="Center" d:IsHidden="True"><TextBlock.Foreground>
         		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
         			<GradientStop Color="#FFE5E5E5"/>
         			<GradientStop Color="#FFA7A7A7" Offset="0.99"/>
@@ -90,6 +90,66 @@
         			<GradientStop Color="#FFA7A7A7" Offset="0.509"/>
         		</LinearGradientBrush>
         	</TextBlock.Foreground><Run Language="sv-se" Text="1"/></TextBlock>
+        <Canvas x:Name="circlepart" UseLayoutRounding="False" Margin="810,390">
+        	<Canvas x:Name="Layer_1" Height="143.078" Canvas.Left="0.165" Canvas.Top="0.076" Width="145.28">
+        		<Path x:Name="circle4" Data="F1M145.4448,0.0756999999999834C66.9898,2.41669999999998,3.67679999999999,64.9977,0.164799999999985,143.1537L33.7088,143.1537C37.1668,83.5057,85.4958,35.9047,145.4448,33.5987z" Height="143.078" Canvas.Left="-5.5" Stretch="Fill" Canvas.Top="-7" Width="145.28">
+        			<Path.Fill>
+        				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        					<GradientStop Color="#FFDC9700" Offset="0"/>
+        					<GradientStop Color="#FFFDD100" Offset="1"/>
+        				</LinearGradientBrush>
+        			</Path.Fill>
+        		</Path>
+        		<Path x:Name="circle1" Data="F1M145.4448,0.0756999999999834C66.9898,2.41669999999998,3.67679999999999,64.9977,0.164799999999985,143.1537L33.7088,143.1537C37.1668,83.5057,85.4958,35.9047,145.4448,33.5987z" Height="143.078" Canvas.Left="152.335" Stretch="Fill" Canvas.Top="-5.154" Width="145.28" RenderTransformOrigin="0.5,0.5">
+        			<Path.Fill>
+        				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        					<GradientStop Color="#FFF19308" Offset="0"/>
+        					<GradientStop Color="#FFD6B000" Offset="1"/>
+        				</LinearGradientBrush>
+        			</Path.Fill>
+        			<Path.RenderTransform>
+        				<TransformGroup>
+        					<ScaleTransform/>
+        					<SkewTransform/>
+        					<RotateTransform Angle="90"/>
+        					<TranslateTransform/>
+        				</TransformGroup>
+        			</Path.RenderTransform>
+        		</Path>
+        		<Path x:Name="circle3" Data="F1M145.4448,0.0756999999999834C66.9898,2.41669999999998,3.67679999999999,64.9977,0.164799999999985,143.1537L33.7088,143.1537C37.1668,83.5057,85.4958,35.9047,145.4448,33.5987z" Height="143.078" Canvas.Left="-6.165" Stretch="Fill" Canvas.Top="150.924" Width="145.28" RenderTransformOrigin="0.5,0.5">
+        			<Path.Fill>
+        				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        					<GradientStop Color="#FFB1850D" Offset="0"/>
+        					<GradientStop Color="#FFF1B40C" Offset="1"/>
+        				</LinearGradientBrush>
+        			</Path.Fill>
+        			<Path.RenderTransform>
+        				<TransformGroup>
+        					<ScaleTransform/>
+        					<SkewTransform/>
+        					<RotateTransform Angle="270"/>
+        					<TranslateTransform/>
+        				</TransformGroup>
+        			</Path.RenderTransform>
+        		</Path>
+        		<Path x:Name="circle2" Data="F1M145.4448,0.0756999999999834C66.9898,2.41669999999998,3.67679999999999,64.9977,0.164799999999985,143.1537L33.7088,143.1537C37.1668,83.5057,85.4958,35.9047,145.4448,33.5987z" Height="143.078" Canvas.Left="151.555" Stretch="Fill" Canvas.Top="151.846" Width="145.28" RenderTransformOrigin="0.5,0.5">
+        			<Path.Fill>
+        				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        					<GradientStop Color="#FFA17500" Offset="0"/>
+        					<GradientStop Color="#FFF5B300" Offset="1"/>
+        				</LinearGradientBrush>
+        			</Path.Fill>
+        			<Path.RenderTransform>
+        				<TransformGroup>
+        					<ScaleTransform/>
+        					<SkewTransform/>
+        					<RotateTransform Angle="180"/>
+        					<TranslateTransform/>
+        				</TransformGroup>
+        			</Path.RenderTransform>
+        		</Path>
+        	</Canvas>
+        </Canvas>
         
        
     </Grid>

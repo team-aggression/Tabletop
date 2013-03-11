@@ -176,14 +176,25 @@ namespace TabletopComputing.Views
 
             float p = (float)time / (float)BEATCONSTANT;
 
-            if (p >= 0 && p < 0.25)
-                tbBeatCounter.Text = "1";
-            else if (p >= 0.25 && p < 0.5)
-                tbBeatCounter.Text = "2";
-            else if (p >= 0.50 && p < 0.75)
-                tbBeatCounter.Text = "3";
-            else if (p >= 0.75 && p < 1.0)
-                tbBeatCounter.Text = "4";
+            if (p >= 0 && p < 0.25) {
+                //tbBeatCounter.Text = "1";
+				circle1.Opacity = 1.0;
+				circle4.Opacity = 0.3;
+				circle3.Opacity = 0.3;
+				circle2.Opacity = 0.3;
+			}
+            else if (p >= 0.25 && p < 0.5) {
+                //tbBeatCounter.Text = "2";
+				circle2.Opacity = 1.0;
+			}
+            else if (p >= 0.50 && p < 0.75) {
+                //tbBeatCounter.Text = "3";
+				circle3.Opacity = 1.0;
+			}
+            else if (p >= 0.75 && p < 1.0) {
+                //tbBeatCounter.Text = "4";
+				circle4.Opacity = 1.0;
+			}
 
             if (((time) >= (BEATCONSTANT)) || first)
             {
